@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Concentrese</string>
+    <string name="action_settings">Acerca</string>
+    <string name="Inicio">Bienvenido a Concentrese</string>
+    <string name="Jugar">Jugar</string>
+    <string name="Acerca">Acerca de</string>
+    <string name="title_activity_acerca">Acerca</string>
+    <string name="title_activity_jugar">Jugar</string>
+    <string name="developer_name">Desarrollado por: Edgar Amezquita </string>
+    <string name="developer_email">Email: ed.amezqui.95@gmail.com</string>
+    <string name="developer_motivation">Primer Laboratorio de computación y agentes moviles</string>
+    <string name="volver">Volver</string>
+    <string name="players">Cuantos van a jugar: </string>
+    <string name="p1">Un Jugador</string>
+    <string name="p2">Dos Jugadores</string>
+    <string name="p3">Tres Jugadores</string>
+    <string name="p4">Cuatro Jugadores</string>
+    <string name="empezar">Empezar!</string>
+    <string name="inNombre">Ingrese su nombre jugador</string>
+    <string name="title_activity_juego">Juego</string>
+    <string name="title_activity_get_names">GetNames</string>
+
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Concentration</string>
+    <string name="title_activity_acerca">About</string>
+    <string name="title_activity_jugar">Play</string>
+    <string name="action_settings">About</string>
+    <string name="Inicio">Welcome to Concentration</string>
+    <string name="Jugar">Play</string>
+    <string name="Acerca">About</string>
+    <string name="developer_name">Developed by: Edgar Amezquita </string>
+    <string name="developer_email">Email: ed.amezqui.95@gmail.com</string>
+    <string name="developer_motivation">First Lab of Mobile computation</string>
+    <string name="volver">Back</string>
+    <string name="players">How many are going to play: </string>
+    <string name="p1">One Player</string>
+    <string name="p2">Two Players</string>
+    <string name="p3">Three Players</string>
+    <string name="p4">Four Players</string>
+    <string name="empezar">Begin!</string>
+    <string name="inNombre">Name for player</string>
+    <string name="title_activity_juego">Game</string>
+</resources>
