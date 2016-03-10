@@ -17,7 +17,12 @@
     <string name="p4">Cuatro Jugadores</string>
     <string name="empezar">Empezar!</string>
     <string name="inNombre">Ingrese su nombre jugador</string>
+    <string name="ErrorName">Por favor ingrese un nombre</string>
+    <string name="ErrorClick">Por favor seleccione uno diferente</string>
+    <string name="currP">Jugador Actual: </string>
+    <string name="currPPoints">Puntaje: </string>
     <string name="title_activity_juego">Juego</string>
-    <string name="title_activity_get_names">GetNames</string>
+    <string name="title_activity_get_names"> </string>
+    <string name="title_activity_final">Final</string>
 
 </resources>

@@ -12,7 +12,7 @@
     tools:context="com.example.administrator.concentrationea.GetNames"
     tools:showIn="@layout/activity_get_names"
     android:id="@+id/Laynames"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     >
 
 

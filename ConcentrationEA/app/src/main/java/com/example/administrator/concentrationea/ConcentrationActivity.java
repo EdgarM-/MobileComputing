@@ -10,7 +10,6 @@ import android.view.MenuItem;
  * Created by Administrator on 3/8/2016.
  */
 public class ConcentrationActivity extends AppCompatActivity {
-    private static int nPlayers;
 
 
     @Override
@@ -37,11 +36,4 @@ public class ConcentrationActivity extends AppCompatActivity {
         Intent intent = new Intent(this,Acerca.class);
         startActivityForResult(intent, 1);
     }
-    public static int getnPlayers(){
-        return nPlayers;
-    }
-    public void setnPlayers(int players){
-        this.nPlayers = players;
-    }
-
 }

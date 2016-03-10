@@ -1,5 +1,7 @@
 package com.example.administrator.concentrationea;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,6 +19,8 @@ import java.util.ArrayList;
 
 public class GetNames extends ConcentrationActivity {
     private ArrayList<String> Names;
+    private int nPlayers;
+    public static final String NombresJ = "Nombres";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +29,11 @@ public class GetNames extends ConcentrationActivity {
         setSupportActionBar(toolbar);
         LinearLayout lin = (LinearLayout) findViewById(R.id.Laynames);
         Intent intent = getIntent();
-        int nPlayers = intent.getIntExtra(Jugar.nJugadores, 0);
+        nPlayers = intent.getIntExtra(Jugar.nJugadores, 0);
         for (int i = 0; i < nPlayers;++i){
             TextView nPlayer = new TextView(this);
             EditText namePlayer = new EditText(this);
-            nPlayer.setText(new String(R.string.inNombre + " " + String.valueOf(i + 1) + " :"));
+            nPlayer.setText(getResources().getString(R.string.inNombre) + " " + String.valueOf(i + 1) + " :");
             nPlayer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             nPlayer.setTextSize(20);
             namePlayer.setId(i);
@@ -39,12 +43,37 @@ public class GetNames extends ConcentrationActivity {
         }
         Button ok = new Button(this);
         ok.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        ok.setPadding(32,32,32,32);
+        ok.setPadding(32, 32, 32, 32);
         ok.setText(R.string.empezar);
-        lin.addView(ok);
-    }
-    public void empezar(View view){
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Names = new ArrayList<String>();
+                String currName;
+                for (int i = 0; i < nPlayers; ++i) {
+                    EditText namePlayer = (EditText) findViewById(i);
+                    currName = namePlayer.getText().toString();
+                    if (currName.isEmpty()) {
+                        AlertDialog.Builder b = new AlertDialog.Builder(v.getContext());
+                        b.setMessage(getResources().getString(R.string.ErrorName));
+                        b.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                            }
+                        });
+                        AlertDialog Error = b.create();
+                        Error.show();
+                        return;
+                    }
+                    Names.add(currName);
+                }
+                Intent intent = new Intent(v.getContext(), Juego.class);
+                intent.putStringArrayListExtra(NombresJ,Names);
+                startActivity(intent);
+            }
+        });
+        lin.addView(ok);
     }
 
 }
