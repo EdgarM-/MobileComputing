@@ -19,12 +19,15 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
 public class Juego extends ConcentrationActivity {
-    private ArrayList<Player> Players;
+    private ArrayList<Player> players;
+    private ArrayList<String> nombress;
+    private ArrayList<Integer> puntajes;
     private int cantPar;
     private int currPlayer;
     private int IdFicha;
@@ -33,16 +36,17 @@ public class Juego extends ConcentrationActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
-
+        nombress = new ArrayList<String>();
+        puntajes = new ArrayList<Integer>();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent getInfo = getIntent();
-        ArrayList<String> Nombres;
-        Nombres = getInfo.getStringArrayListExtra(GetNames.NombresJ);
-        Players = new ArrayList<Player>();
-        for (int i=0;i < Nombres.size();++i){
-            Player noob = new Player(Nombres.get(i),0);
-            Players.add(noob);
+        ArrayList<String> nombres;
+        nombres = getInfo.getStringArrayListExtra(GetNames.NombresJ);
+        players = new ArrayList<Player>();
+        for (int i=0;i < nombres.size();++i){
+            Player noob = new Player(nombres.get(i),0);
+            players.add(noob);
         }
         ArrayList<String> Colors = new ArrayList<String>(Arrays.asList("#660000","#FF5500","#FF8000","#FFAA00","#7F9900","#00CC88","#009980","#0F5757","#0F4B57","#8F7AB8","#660000","#FF5500","#FF8000","#FFAA00","#7F9900","#00CC88","#009980","#0F5757","#0F4B57","#8F7AB8"));
         Collections.shuffle(Colors);
@@ -55,7 +59,7 @@ public class Juego extends ConcentrationActivity {
         currPlayer = 0;
         IdFicha = 0;
         cantPar = 0;
-        ActJugadorPuntaje(Players.get(currPlayer).getName(),Players.get(currPlayer).getScore());
+        ActJugadorPuntaje(players.get(currPlayer).getName(), players.get(currPlayer).getScore());
 
     }
 
@@ -75,38 +79,43 @@ public class Juego extends ConcentrationActivity {
             else {
                 Button but1 = (Button) findViewById(IdFicha);
                 Button but2 = (Button) findViewById(view.getId());
+                String color = but2.getTag().toString();
                 IdFicha2 = view.getId();
-                if (but1.getTag().equals(but2.getTag())){
-                    String color = but1.getTag().toString();
-                    but2.setBackgroundColor(Color.parseColor(color));
+                but2.setBackgroundColor(Color.parseColor(color));
+                if (but1.getTag().toString().equals(but2.getTag().toString())){
                     but1.setClickable(false);
                     but2.setClickable(false);
-                    Players.get(currPlayer).plusScore(1);
+                    but2.setBackgroundColor(Color.parseColor(color));
+                    players.get(currPlayer).plusScore(1);
+                    ActJugadorPuntaje(players.get(currPlayer).getName(), players.get(currPlayer).getScore());
                     cantPar+=1;
+                    IdFicha = 0;
                     if (cantPar == 10){
                         Intent intent = new Intent(this,Final.class);
-                        //intent.putExtras();
+                        generateResults();
+                        intent.putExtra("Nombres",nombress);
+                        intent.putExtra("Puntajes",puntajes);
                         startActivity(intent);
                     }
                 }
                 else {
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-
+                    new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             Button but1 = (Button) findViewById(IdFicha);
                             Button but2 = (Button) findViewById(IdFicha2);
                             but1.setBackgroundColor(Color.LTGRAY);
                             but2.setBackgroundColor(Color.LTGRAY);
+                            IdFicha = 0;
                         }
+                    }, 300);
+                    //but1.setBackgroundColor(Color.LTGRAY);
+                    //but2.setBackgroundColor(Color.LTGRAY);
 
-                    }, 3000);
-
-                    currPlayer += 1;
-                    ActJugadorPuntaje(Players.get(currPlayer).getName(),Players.get(currPlayer).getScore());
+                    currPlayer = (currPlayer+1)%players.size();
+                    ActJugadorPuntaje(players.get(currPlayer).getName(), players.get(currPlayer).getScore());
                 }
-                IdFicha = 0;
+
             }
         }
     }
@@ -117,5 +126,17 @@ public class Juego extends ConcentrationActivity {
         nombre.setText(getResources().getString(R.string.currP)+name);
         puntos.setText(getResources().getString(R.string.currPPoints)+String.valueOf(puntaje));
     }
+    public void generateResults(){
+        Collections.sort(players, new Comparator<Player>() {
+            @Override
+            public int compare(Player lhs, Player rhs) {
+                return  rhs.getScore() < lhs.getScore() ? -1 : lhs.getScore() == rhs.getScore() ? 0 : 1;
+            }
+        });
+        for (Player p : players){
+            nombress.add(p.getName());
+            puntajes.add(p.getScore());
+        }
 
+    }
 }

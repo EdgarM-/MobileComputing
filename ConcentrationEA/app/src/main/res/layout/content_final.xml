@@ -25,7 +25,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Points"
+        android:id="@+id/WinPts"
         android:layout_toRightOf="@+id/WinTxt"
         android:textSize="40sp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/LOthers"
+        android:layout_marginRight="32sp"
+        android:layout_below="@+id/WinTxt"
+        >
+
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Again"
+        android:layout_below="@+id/LOthers"
+        android:padding="32sp"
+        android:layout_marginTop="64sp"
+        android:onClick="again"
+        android:layout_marginLeft="32sp"
+        android:id="@+id/again"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/NewGame"
+        android:layout_below="@+id/LOthers"
+        android:layout_toRightOf="@+id/again"
+        android:padding="32sp"
+        android:onClick="newGame"
+        android:layout_marginTop="64sp"
+        android:layout_marginLeft="32sp"
         />
 </RelativeLayout>

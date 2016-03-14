@@ -21,6 +21,9 @@
     <string name="ErrorClick">Por favor seleccione uno diferente</string>
     <string name="currP">Jugador Actual: </string>
     <string name="currPPoints">Puntaje: </string>
+    <string name="Again">Volver a Jugar </string>
+    <string name="NewGame">Nuevo Juego </string>
+    <string name="Win">Ganador: </string>
     <string name="title_activity_juego">Juego</string>
     <string name="title_activity_get_names"> </string>
     <string name="title_activity_final">Final</string>

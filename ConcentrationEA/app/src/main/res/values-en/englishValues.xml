@@ -21,6 +21,9 @@
     <string name="ErrorName">Please insert a name</string>
     <string name="currP">Current Player: </string>
     <string name="ErrorClick">Please select another diferent</string>
+    <string name="Again">Play Again </string>
+    <string name="NewGame">New Game </string>
+    <string name="Win">Winner: </string>
     <string name="currPPoints">Score: </string>
     <string name="title_activity_juego">Game</string>
     <string name="title_activity_get_names"> </string>
