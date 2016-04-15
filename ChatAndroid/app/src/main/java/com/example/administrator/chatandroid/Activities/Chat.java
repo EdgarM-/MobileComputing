@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
 import com.example.administrator.chatandroid.CustomThings.MessagesAdapter;
 import com.example.administrator.chatandroid.LocalStorage.MessageStorage;
 import com.example.administrator.chatandroid.Model.Message;
@@ -21,6 +22,8 @@ import com.example.administrator.chatandroid.WebServices.RestPostMessage;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 public class Chat extends AppCompatActivity {
     private int idFrom;
@@ -85,8 +88,19 @@ public class Chat extends AppCompatActivity {
     public void sendMessage(View v){
         EditText editText = (EditText) findViewById(R.id.Message);
         try {
+            Calendar c = Calendar.getInstance();
+            //System.out.println("Current time => "+c.getTime());
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String formattedDate = df.format(c.getTime());
             String text = editText.getText().toString();
-            Message message = new RestPostMessage().execute(String.valueOf(myId), String.valueOf(idFrom),text).get();
+            Message message = new Message();
+            message.setFrom(myId);
+            message.setTo(idFrom);
+            message.setText(text);
+            message.setDate(formattedDate);
+            storedMessages.insertMessage(message.getFrom(),message.getTo(),message.getText(),message.getDate());
+            messages.add(message);
+            new RestPostMessage().execute(String.valueOf(myId), String.valueOf(idFrom),text).get();
 
         } catch (InterruptedException e) {
             e.printStackTrace();

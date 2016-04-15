@@ -15,9 +15,10 @@ import java.util.ArrayList;
  * Created by Administrator on 4/12/2016.
  */
 public class RestGetContacts extends AsyncTask<Integer,Void,ArrayList<Contact>> {
+    public static final String ip = "172.17.23.229";
     @Override
     protected ArrayList<Contact> doInBackground(Integer... params) {
-        String url = "http://192.168.0.6:8191/rest/contacts/{uId}";
+        String url = "http://"+ip+":8191/rest/contacts/{uId}";
         ArrayList<Contact> contactos = null;
         // Create a new RestTemplate instance
         RestTemplate restTemplate = new RestTemplate();

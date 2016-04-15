@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">ChatAndroid</string>
+    <string name="app_name">TCIceChat</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_contactos">Contactos</string>
     <string name="title_activity_chat"></string>
-    <string name="welcome">Bienvenido a IceChat</string>
+    <string name="welcome">Bienvenido a TCIceChat</string>
     <string name="idreq">Ingrese su id</string>
     <string name="InitButton">Aceptar</string>
     <string name="MessageHint">Escribe un mensaje</string>

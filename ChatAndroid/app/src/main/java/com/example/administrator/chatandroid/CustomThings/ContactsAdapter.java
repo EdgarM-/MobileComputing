@@ -24,7 +24,7 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
         View contactView = LayoutInflater.from(getContext()).inflate(R.layout.contact_template,null,true);
         ContactTextView uName = (ContactTextView) contactView;
         uName.setIdContact(contact.getUserId());
-        uName.setContactName(contact.getNombre());
+        uName.setContactName(contact.getUserName());
         uName.setText(uName.getContactName());
 
         return contactView;
