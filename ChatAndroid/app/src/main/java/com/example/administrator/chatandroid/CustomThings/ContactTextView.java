@@ -1,4 +1,4 @@
-package com.example.administrator.chatandroid.Activities;
+package com.example.administrator.chatandroid.CustomThings;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,11 +9,11 @@ import com.example.administrator.chatandroid.R;
 /**
  * Created by Administrator on 4/14/2016.
  */
-public class CustomTextView extends TextView {
+public class ContactTextView extends TextView {
     private int idContact;
     private String contactName;
 
-    public CustomTextView(Context context, AttributeSet attrs) {
+    public ContactTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
     }

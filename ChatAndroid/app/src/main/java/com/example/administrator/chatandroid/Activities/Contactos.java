@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.administrator.chatandroid.CustomThings.ContactsAdapter;
+import com.example.administrator.chatandroid.CustomThings.ContactTextView;
 import com.example.administrator.chatandroid.Model.Contact;
 import com.example.administrator.chatandroid.R;
 import com.example.administrator.chatandroid.WebServices.RestGetContacts;
@@ -47,7 +49,7 @@ public class Contactos extends AppCompatActivity {
 
     public void openChat(View v){
         Intent intent = new Intent(this, Chat.class);
-        CustomTextView contact = (CustomTextView) v;
+        ContactTextView contact = (ContactTextView) v;
         intent.putExtra("FromId",contact.getIdContact());
         intent.putExtra("FromName", contact.getContactName());
         intent.putExtra("MyId",myId);

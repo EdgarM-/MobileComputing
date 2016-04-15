@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.administrator.chatandroid.Activities.CustomTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.administrator.chatandroid.CustomThings.ContactTextView xmlns:android="http://schemas.android.com/apk/res/android"
 android:orientation="vertical" android:layout_width="match_parent"
 android:layout_height="match_parent" android:textSize="20sp"
     android:textStyle="italic|bold"
     android:id="@+id/CustomContact"
     android:onClick="openChat"
+    android:padding="10sp"
+    android:background="@drawable/contactoval"
     >
-</com.example.administrator.chatandroid.Activities.CustomTextView>
+</com.example.administrator.chatandroid.CustomThings.ContactTextView>

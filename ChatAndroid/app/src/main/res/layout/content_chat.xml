@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,19 +12,33 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activities.Chat"
     tools:showIn="@layout/activity_chat">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/NombreContacto"/>
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Messages"
         />
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:hint="@string/app_name"
-        />
-</LinearLayout>
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/MessageHint"
+            android:layout_weight="3"
+            android:id="@+id/Message"
+            />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/send2"
+            android:layout_weight="2"
+            android:onClick="sendMessage"
+            android:background="@null"
+            android:paddingRight="3sp"
+            android:layout_marginRight="3sp"
+            />
+    </LinearLayout>
+</RelativeLayout>
