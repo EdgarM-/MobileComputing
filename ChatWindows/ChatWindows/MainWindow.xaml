@@ -1,0 +1,14 @@
+﻿<Window x:Class="ChatWindows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatWindows"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Label Content="Ingrese su ID:" Margin="156,96,190,169" FontSize="20"></Label>
+        <TextBox Margin="291,106,171,179" TextAlignment="Center" Text="{Binding user}"></TextBox>
+        <Button x:Name="idUsario" Content="Ingresar" Margin="156,158,171,120" Click="idUsario_Click"></Button>
+    </Grid>
+</Window>
