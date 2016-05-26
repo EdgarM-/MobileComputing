@@ -29,8 +29,7 @@ namespace ChatWindows
         }
 
         private void idUsario_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {            
             Contacts ventanaContactos = new Contacts((DataCtx)this.DataContext);
             ventanaContactos.Show();
             this.Close();

@@ -15,7 +15,7 @@ namespace ChatWindows.Rest
         {
             this.url = url;
         }
-        public void message(int from, int to, string content)
+        public void Message(int from, int to, string content)
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(this.url);

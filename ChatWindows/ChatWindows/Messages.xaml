@@ -9,22 +9,21 @@
     <Grid>
         <Label Content="{Binding nombre}" FontSize="20" HorizontalAlignment="Center"></Label>
         <UniformGrid Margin="0,37,0,0" Grid.ColumnSpan="2">
-            <ItemsControl ItemsSource="{Binding Players}">
+            <ItemsControl ItemsSource="{Binding mensajes}" Margin="0,0,0,40">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid></UniformGrid>
+                        <StackPanel/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <UniformGrid>
-                            <TextBlock Text="{Binding nombre}"/>
-                            <TextBlock Text="{Binding Puntaje}"/>
-                        </UniformGrid>
+                        <TextBlock Text="{Binding text}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </UniformGrid>
+        <TextBox Margin="0,234,55,0" Text="{Binding mensaje}"></TextBox>
+        <Button Margin="237,234,0,0" Click="Button_Click" >Enviar</Button>
 
     </Grid>
 </Window>

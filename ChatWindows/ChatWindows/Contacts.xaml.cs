@@ -30,9 +30,8 @@ namespace ChatWindows
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button f = (Button)sender;
-            Messages ventanaChat = new Messages((DataCtx)this.DataContext, Int32.Parse(f.Name.ToString()),f.Content.ToString());
+            Messages ventanaChat = new Messages((DataCtx)this.DataContext, Int32.Parse(f.Tag.ToString()),f.Content.ToString());
             ventanaChat.Show();
-            this.Close();
         }
     }
 }

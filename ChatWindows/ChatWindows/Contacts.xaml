@@ -20,7 +20,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Name="{Binding userId}" Content="{Binding nombre}" Click="Button_Click"/>
+                    <Button Content="{Binding nombre}" Click="Button_Click" Tag="{Binding userId}"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

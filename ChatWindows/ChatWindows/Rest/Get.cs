@@ -39,6 +39,7 @@ namespace ChatWindows.Rest
             client.BaseAddress = new Uri(this.url);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage request = client.GetAsync("messages/" + from.ToString()+"/"+to.ToString()).Result;
+            
             if (request.IsSuccessStatusCode)
             {
                 mensajes = request.Content.ReadAsAsync<IEnumerable<Message>>().Result.ToList();
