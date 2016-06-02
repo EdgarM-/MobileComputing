@@ -14,7 +14,8 @@ class sContactViewController: UIViewController, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     var idEntrar:Int = 0
     var cManager = ContactManager ()
-    var nombreUserSalida:Contact = Contact(id: 1,name: "a",userName: "b")
+    var nombreUserDestino:Contact = Contact(id: 1,name: "a",userName: "b")
+    var nombreUserRemitente:Contact = Contact(id: 1,name: "a",userName: "b")
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomTableViewCell = tableView.dequeueReusableCellWithIdentifier("Custom01") as! CustomTableViewCell
@@ -39,9 +40,11 @@ class sContactViewController: UIViewController, UITableViewDataSource {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "Conversar"){
-            nombreUserSalida = cManager.getContactAt((tableView.indexPathForSelectedRow?.row)!)!
+            nombreUserDestino = cManager.getContactAt((tableView.indexPathForSelectedRow?.row)!)!
+            nombreUserRemitente = cManager.getContactAt(idEntrar)!
         }
-        (segue.destinationViewController as! ChatView).NombreEntrante = nombreUserSalida
+        (segue.destinationViewController as! ChatView).userDestino = nombreUserDestino
+        (segue.destinationViewController as! ChatView).userDestino = nombreUserRemitente
         
     }
     

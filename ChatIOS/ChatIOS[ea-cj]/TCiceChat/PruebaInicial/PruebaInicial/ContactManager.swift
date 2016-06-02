@@ -10,7 +10,7 @@ import UIKit
 
 class ContactManager {
     var contactList: Array<Contact> = Array<Contact>();
-    
+    // APLICAR REST AQUI PARA LA SELECCION DEL CONTACTO
     init(){
         contactList = [Contact(id: 1,name: "Carlos Jaramillo",userName: "carlosjara"),Contact(id: 2,name: "Edgar Amezquita",userName: "EdgarM-"),Contact(id: 3,name: "Juan Rada",userName: "jcamilorada")];
         

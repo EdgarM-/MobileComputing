@@ -13,26 +13,30 @@ class ChatView: UIViewController, UITableViewDataSource{
     @IBOutlet var nombreChatTop: UINavigationItem!
     
     @IBOutlet var tableView: UITableView!
-    var NombreEntrante:Contact = Contact(id: 1,name: "a",userName: "b")
+    var userDestino:Contact = Contact(id: 1,name: "a",userName: "b")
+    var userRemitente: Contact = Contact(id: 1, name: "a", userName: "b")
     
     var cManager : ChatManager = ChatManager()
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:CustomTableViewCell = tableView.dequeueReusableCellWithIdentifier("Custom01") as! CustomTableViewCell
-        
+        let identifier:String = "CustomM02"
+        //#### NOTA PENDIENTE REVISAR EL ID PARA SELECCIONAR EL identifier
+        let cell:CustomMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CustomMessageTableViewCell
+        let Message = cManager.getMessage(userRemitente.id, to: userDestino.id)
+        cell.lblM1.text = Message.text
         return cell
     }
     
     func tableView(tableView: UITableView,numberOfRowsInSection section: Int) -> Int{
-        return cManager.contactCount();
+        return cManager.count();
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nombreChatTop.title = NombreEntrante.name
-        
-        
+        nombreChatTop.title = userDestino.name
+        debugPrint("-------hnh------")
+        //cManager.getMessage(userRemitente.id, to: userDestino.id)
     }
     
     override func didReceiveMemoryWarning() {
