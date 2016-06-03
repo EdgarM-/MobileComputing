@@ -11,7 +11,7 @@ import UIKit
 class ChatView: UIViewController, UITableViewDataSource{
     
     @IBOutlet var nombreChatTop: UINavigationItem!
-    
+    @IBOutlet var textEntrante: UITextField!
     @IBOutlet var tableView: UITableView!
     var userDestino:Contact = Contact(id: 1,name: "a",userName: "b")
     var userRemitente: Contact = Contact(id: 1, name: "a", userName: "b")
@@ -21,8 +21,8 @@ class ChatView: UIViewController, UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifier:String = "CustomM02"
         //#### NOTA PENDIENTE REVISAR EL ID PARA SELECCIONAR EL identifier
-        let cell:CustomMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CustomMessageTableViewCell
         let Message = cManager.getMessage(userRemitente.id, to: userDestino.id)
+        let cell:CustomMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CustomMessageTableViewCell
         cell.lblM1.text = Message.text
         return cell
     }
@@ -34,8 +34,8 @@ class ChatView: UIViewController, UITableViewDataSource{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textEntrante.keyboardType = UIKeyboardType.Default
         nombreChatTop.title = userDestino.name
-        debugPrint("-------hnh------")
         //cManager.getMessage(userRemitente.id, to: userDestino.id)
     }
     
@@ -44,5 +44,10 @@ class ChatView: UIViewController, UITableViewDataSource{
     }
     override func viewWillAppear(animated: Bool) {
         tableView.reloadData()
+    }
+    @IBAction func SendMessage(sender: AnyObject) {
+        let texto:String = textEntrante.text!
+        cManager.addMessge(userRemitente.id, to: userDestino.id, text: texto)
+        textEntrante.clearButtonMode = .WhileEditing
     }
 }

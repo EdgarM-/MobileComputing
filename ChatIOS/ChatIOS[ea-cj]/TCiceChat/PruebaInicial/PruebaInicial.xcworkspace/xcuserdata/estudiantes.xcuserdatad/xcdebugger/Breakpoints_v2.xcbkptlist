@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PruebaInicial/ChatManager.swift"
-            timestampString = "486513645.360137"
+            timestampString = "486667018.453815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "getMessage(_:to:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -78,6 +78,22 @@
             startingLineNumber = "43"
             endingLineNumber = "43"
             landmarkName = "init()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PruebaInicial/ChatView.swift"
+            timestampString = "486661511.065672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "SendMessage(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

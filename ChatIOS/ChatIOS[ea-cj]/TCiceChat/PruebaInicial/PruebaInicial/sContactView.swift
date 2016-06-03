@@ -34,8 +34,11 @@ class sContactViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         cManager.getContacts(idEntrar)
+        let nameRemitente:String = (cManager.getContactAt(idEntrar)?.name)!
+        let userNameRemitente:String = (cManager.getContactAt(idEntrar)?.userName)!
         //cManager.getContactAt(idEntrar)?.userName
         lblID.text? = "Usuario: \(idEntrar)"
+        nombreUserRemitente = Contact(id: idEntrar, name: nameRemitente, userName: userNameRemitente)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -44,7 +47,7 @@ class sContactViewController: UIViewController, UITableViewDataSource {
             nombreUserRemitente = cManager.getContactAt(idEntrar)!
         }
         (segue.destinationViewController as! ChatView).userDestino = nombreUserDestino
-        (segue.destinationViewController as! ChatView).userDestino = nombreUserRemitente
+        (segue.destinationViewController as! ChatView).userRemitente = nombreUserRemitente
         
     }
     

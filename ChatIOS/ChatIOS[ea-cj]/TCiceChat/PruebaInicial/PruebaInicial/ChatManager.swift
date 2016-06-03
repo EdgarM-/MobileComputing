@@ -49,13 +49,20 @@ class ChatManager {
     }
     
     func addMessge(from:Int, to:Int, text:String) {
-        try! db.run(MessagesTb.insert(fromColumn <- from, toColumn <- to, textColumn <- text))
+        let dateString = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        let currentDate:String = dateFormatter.stringFromDate(dateString)
+        try! db.run(MessagesTb.insert(fromColumn <- from, toColumn <- to, textColumn <- text, dateColumn <- currentDate))
     }
     
     func getMessage(from:Int, to:Int) -> Message{
         let query = MessagesTb.select(idColumn,fromColumn,toColumn,textColumn,dateColumn).filter(fromColumn == from).filter(toColumn == to)
-        let msg = Array(try! db.prepare(query))[0]
-        let solve = Message(idMessage: msg.get(idColumn), from: msg.get(fromColumn), to: msg.get(toColumn), text: msg.get(textColumn), date: msg.get(dateColumn))
+        let messages = Array(try! db.prepare(query))
+        var solve = Message(idMessage: messages[0].get(idColumn), from: messages[0].get(fromColumn), to: messages[0].get(toColumn), text: messages[0].get(textColumn), date: messages[0].get(dateColumn))
+        for msg in messages {
+            solve = Message(idMessage: msg.get(idColumn), from: msg.get(fromColumn), to: msg.get(toColumn), text: msg.get(textColumn), date: msg.get(dateColumn))
+        }
         return solve
     }
         

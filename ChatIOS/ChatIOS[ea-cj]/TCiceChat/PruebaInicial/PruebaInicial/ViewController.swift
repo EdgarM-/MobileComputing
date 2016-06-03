@@ -17,14 +17,30 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         txtField_Id.keyboardType = UIKeyboardType.NumberPad
+        /*
+        let currentDate = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let componentDay = calendar.components(.Day, fromDate: currentDate)
+        let componentMonth = calendar.components(.Month, fromDate: currentDate)
+        let componentYear = calendar.components(.Year, fromDate: currentDate)
+        let day = componentDay.day
+        let month = componentMonth.month
+        let year = componentYear.year
+        debugPrint("\(day)-\(month)-\(year)")
+        
+        let dateString = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        let date2:String = dateFormatter.stringFromDate(dateString)
+        debugPrint(date2)*/
         
 
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
