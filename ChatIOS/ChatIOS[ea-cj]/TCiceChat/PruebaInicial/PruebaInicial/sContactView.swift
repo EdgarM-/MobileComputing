@@ -33,7 +33,7 @@ class sContactViewController: UIViewController, UITableViewDataSource {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
         cManager.getContacts(idEntrar)
         let nameRemitente:String = "Carlos"
         let userNameRemitente:String = "Jaramillo"
@@ -45,7 +45,7 @@ class sContactViewController: UIViewController, UITableViewDataSource {
         let delay = seconds*Double(NSEC_PER_SEC)
         let dispatchtime = dispatch_time(DISPATCH_TIME_NOW,Int64(delay))
         dispatch_after(dispatchtime, dispatch_get_main_queue(), {
-            self.viewWillAppear(true)
+            self.viewWillAppear(true)	
         
         })
     }
@@ -53,10 +53,13 @@ class sContactViewController: UIViewController, UITableViewDataSource {
         if(segue.identifier == "Tab1Conversar"){
             let tabBarController = segue.destinationViewController as! TabBarController1;
             let destinationViewController = tabBarController.viewControllers![0] as! ChatView2
+            let destinationViewController2 = tabBarController.viewControllers![1] as! FileView
             nombreUserDestino = cManager.getContactAt((tableView.indexPathForSelectedRow?.row)!)!
             userRemitente = idEntrar
             destinationViewController.userDestino = nombreUserDestino
             destinationViewController.userRemitente = nombreUserRemitente.id
+            destinationViewController2.userDestino = nombreUserDestino
+            destinationViewController2.userRemitente = nombreUserRemitente.id
             print("Id from",nombreUserDestino.id,"Id to",nombreUserRemitente.id)
         }
     }

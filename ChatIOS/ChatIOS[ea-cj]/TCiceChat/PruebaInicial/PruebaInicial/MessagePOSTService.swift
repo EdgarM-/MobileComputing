@@ -12,16 +12,14 @@ import Alamofire
 class MessagePOSTService {
     
     typealias Model = [[String: AnyObject]]
-    var path: String = "/messages/"
-    
-    init(from : Int, to: Int){
-        path+=String(from)+"/"+String(to)
-        print(path)
-    }
+    var path: String = Restofire.defaultConfiguration.baseURL+"/messages/"
+ 
 
     func SendMessage(from: Int, to: Int, text: String) -> Void {
-        let message = ["from":from, "to" : to, "text":text]
-        Alamofire.request(.POST, path, parameters: message as? [String : AnyObject], encoding: .JSON)
+        let message : Dictionary<String,AnyObject> = Dictionary<String,AnyObject>(dictionaryLiteral: ("from",from), ("to", to),("text",text))//["from":from,"to" : to, "text":text]
+        
+        Alamofire.request(.POST, self.path, parameters: message, encoding: .JSON)
+        debugPrint("Post",from, to)
     }
 }
 

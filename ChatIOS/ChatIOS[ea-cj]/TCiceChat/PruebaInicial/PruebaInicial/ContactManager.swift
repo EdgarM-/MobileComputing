@@ -29,10 +29,10 @@ class ContactManager {
                     self.contactList.append(Contact(id: uId, name: v["nombre"] as! String,userName: v["userName"] as! String))
                     //print(v)
                 }
-                //sContactViewController.viewWillAppear(true)
             }
             
         }
+    
         
        //var lista : Array<Contact> = [Contact(id: 1,name: "Carlos Jaramillo",userName: "carlosjara"),Contact(id: 2,name: "Edgar Amezquita",userName: "EdgarM-"),Contact(id: 3,name: "Juan Rada",userName: "jcamilorada")]
         //contactList = request.getContacts(id)

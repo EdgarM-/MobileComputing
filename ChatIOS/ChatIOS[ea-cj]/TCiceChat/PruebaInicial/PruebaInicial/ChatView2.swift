@@ -24,19 +24,20 @@ class ChatView2: UIViewController {
     var cManager : ChatManager = ChatManager()
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var identifier:String = "Message1"
+        var identifier:String = "Message2"
         var cell:CustomMessageTableViewCell
         let valor = indexPath.row
         let fromMsg = cManager.getFromMsg(valor)
-        if fromMsg == userRemitente {
-            identifier = "Message2"
+        print(cManager.getMsg(valor).idMessage,cManager.getMsg(valor).from, cManager.getMsg(valor).to )
+        if fromMsg == userDestino.id {
+            identifier = "Message1"
             cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CustomMessageTableViewCell
             let msg = cManager.getMsg(valor)
-            cell.lblM4?.text = String(msg.text)
+            cell.lblM3?.text = String(msg.text)
         }else{
             cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CustomMessageTableViewCell
             let msg = cManager.getMsg(valor)
-            cell.lblM3?.text = msg.text
+            cell.lblM4?.text = String(msg.text)
         }
         tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
 
@@ -52,13 +53,13 @@ class ChatView2: UIViewController {
         self.textoEntrante.keyboardType = UIKeyboardType.Default
         self.TituloLbl.text? = self.userDestino.name
         self.cManager.start(self.userRemitente, to: self.userDestino.id)
-        let seconds = 0.5
+        /*let seconds = 0.5
         let delay = seconds*Double(NSEC_PER_SEC)
         let dispatchtime = dispatch_time(DISPATCH_TIME_NOW,Int64(delay))
         dispatch_after(dispatchtime, dispatch_get_main_queue(), {
             self.viewWillAppear(true)
             
-        })
+        })*/
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,24 +72,26 @@ class ChatView2: UIViewController {
     @IBAction func Enviar(sender: AnyObject) {
         let texto:String = textoEntrante.text!
         cManager.addMessge(userRemitente, to: userDestino.id, text: texto)
-        debugPrint(userRemitente,userDestino.id)
-        let postSer: MessagePOSTService = MessagePOSTService(from: userRemitente, to:userDestino.id)
+        let postSer: MessagePOSTService = MessagePOSTService()
         postSer.SendMessage(userRemitente, to:userDestino.id,text:texto)
         textoEntrante.clearButtonMode = .WhileEditing
         textoEntrante.text = nil
-        tableView.reloadData()
+        
+        self.refresh()
+        //tableView.reloadData()
     }
-    @IBAction func Refresh(sender: AnyObject) {
-        //textoEntrante.text = nil
-        //cManager.refreshMessages(userRemitente, to: userDestino.id)
-        let seconds = 1.0
+    
+        
+    func refresh() -> Void {
+        self.cManager.start(self.userRemitente, to: self.userDestino.id)
+        let seconds = 0.5
         let delay = seconds*Double(NSEC_PER_SEC)
         let dispatchtime = dispatch_time(DISPATCH_TIME_NOW,Int64(delay))
         dispatch_after(dispatchtime, dispatch_get_main_queue(), {
             self.viewWillAppear(true)
             
-        })    }
-    
+        })
+    }
     
     
 }

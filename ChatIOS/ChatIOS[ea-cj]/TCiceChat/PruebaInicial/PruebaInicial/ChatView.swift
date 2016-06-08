@@ -25,7 +25,7 @@ class ChatView: UIViewController, UITableViewDataSource{
         //#### NOTA PENDIENTE REVISAR EL ID PARA SELECCIONAR EL identifier
         //msgs = cManager.getMessages(userRemitente.id, to: userDestino.id)
         let cellcount = cell.accessibilityElementCount()
-        let msg = cManager.getMsg(cellcount+indexPath.row)
+        var msg = cManager.getMsg(cellcount+indexPath.row)
         //debugPrint("index path: ",cellcount+indexPath.row)
         //debugPrint("msgs: ",msgs)
         //cell.lblM1.text = msgs[indexPath.row].text
@@ -56,7 +56,7 @@ class ChatView: UIViewController, UITableViewDataSource{
     @IBAction func SendMessage(sender: AnyObject) {
         let texto:String = textEntrante.text!
         cManager.addMessge(userRemitente.id, to: userDestino.id, text: texto)
-        let postSer: MessagePOSTService = MessagePOSTService(from: userRemitente.id, to:userDestino.id)
+        let postSer: MessagePOSTService = MessagePOSTService()
         postSer.SendMessage(userRemitente.id, to:userDestino.id,text:texto)
         textEntrante.clearButtonMode = .WhileEditing
         textEntrante.text = nil

@@ -22,11 +22,17 @@
 		939DD1831D029CD700BB75B5 /* MessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DD1821D029CD700BB75B5 /* MessageStorage.swift */; };
 		939DD1871D02C0FF00BB75B5 /* TabBarController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DD1861D02C0FF00BB75B5 /* TabBarController1.swift */; };
 		939DD1891D02C77400BB75B5 /* ChatView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DD1881D02C77400BB75B5 /* ChatView2.swift */; };
+		93AC1D071D08C83D00D1F988 /* FileGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AC1D061D08C83D00D1F988 /* FileGetService.swift */; };
 		93B5F9333A225D92002CE93D /* Pods_PruebaInicial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B882EDDDC810556AE9FAF11 /* Pods_PruebaInicial.framework */; };
 		93C0E8E41CFE2CCF0071CAA5 /* sContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C0E8E31CFE2CCF0071CAA5 /* sContactView.swift */; };
 		93C0E8E61CFE44C00071CAA5 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C0E8E51CFE44C00071CAA5 /* CustomTableViewCell.swift */; };
 		93C0E8E81CFE61860071CAA5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C0E8E71CFE61860071CAA5 /* ChatView.swift */; };
 		93C0E8EA1CFE62B80071CAA5 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C0E8E91CFE62B80071CAA5 /* ChatManager.swift */; };
+		93CE6F7C1D08A7550039F3D0 /* SharedFilesArrayGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE6F7B1D08A7550039F3D0 /* SharedFilesArrayGetService.swift */; };
+		93CE6F7E1D08A76E0039F3D0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE6F7D1D08A76E0039F3D0 /* File.swift */; };
+		93CE6F801D08AAA70039F3D0 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE6F7F1D08AAA70039F3D0 /* FileManager.swift */; };
+		93CE6F821D08B0E40039F3D0 /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE6F811D08B0E40039F3D0 /* FileView.swift */; };
+		93CE6F841D08B2410039F3D0 /* CustomFileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE6F831D08B2410039F3D0 /* CustomFileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,10 +55,16 @@
 		939DD1821D029CD700BB75B5 /* MessageStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageStorage.swift; sourceTree = "<group>"; };
 		939DD1861D02C0FF00BB75B5 /* TabBarController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController1.swift; sourceTree = "<group>"; };
 		939DD1881D02C77400BB75B5 /* ChatView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView2.swift; sourceTree = "<group>"; };
+		93AC1D061D08C83D00D1F988 /* FileGetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGetService.swift; sourceTree = "<group>"; };
 		93C0E8E31CFE2CCF0071CAA5 /* sContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sContactView.swift; sourceTree = "<group>"; };
 		93C0E8E51CFE44C00071CAA5 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		93C0E8E71CFE61860071CAA5 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		93C0E8E91CFE62B80071CAA5 /* ChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		93CE6F7B1D08A7550039F3D0 /* SharedFilesArrayGetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedFilesArrayGetService.swift; sourceTree = "<group>"; };
+		93CE6F7D1D08A76E0039F3D0 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		93CE6F7F1D08AAA70039F3D0 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		93CE6F811D08B0E40039F3D0 /* FileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
+		93CE6F831D08B2410039F3D0 /* CustomFileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFileTableViewCell.swift; sourceTree = "<group>"; };
 		B71AF123A6A8CF52323C0280 /* Pods-PruebaInicial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PruebaInicial.release.xcconfig"; path = "Pods/Target Support Files/Pods-PruebaInicial/Pods-PruebaInicial.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +117,8 @@
 				7805B8A71CF8C178002A76F3 /* Assets.xcassets */,
 				7805B8A91CF8C178002A76F3 /* LaunchScreen.storyboard */,
 				7805B8AC1CF8C178002A76F3 /* Info.plist */,
+				93CE6F811D08B0E40039F3D0 /* FileView.swift */,
+				93CE6F831D08B2410039F3D0 /* CustomFileTableViewCell.swift */,
 			);
 			path = PruebaInicial;
 			sourceTree = "<group>";
@@ -114,6 +128,7 @@
 			children = (
 				7805B8B41CF8C73D002A76F3 /* Message.swift */,
 				7805B8B21CF8C41F002A76F3 /* Contact.swift */,
+				93CE6F7D1D08A76E0039F3D0 /* File.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -124,6 +139,8 @@
 				938DB9101D0328E0005DF1EC /* ContactArrayGETService.swift */,
 				933353B21D0343C700B43210 /* MessageArrayGETService.swift */,
 				933353B41D03443700B43210 /* MessagePOSTService.swift */,
+				93CE6F7B1D08A7550039F3D0 /* SharedFilesArrayGetService.swift */,
+				93AC1D061D08C83D00D1F988 /* FileGetService.swift */,
 			);
 			name = Rest;
 			sourceTree = "<group>";
@@ -133,6 +150,7 @@
 			children = (
 				7805B8DC1CF90B09002A76F3 /* ContactManager.swift */,
 				93C0E8E91CFE62B80071CAA5 /* ChatManager.swift */,
+				93CE6F7F1D08AAA70039F3D0 /* FileManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -289,16 +307,22 @@
 				7805B8B51CF8C73D002A76F3 /* Message.swift in Sources */,
 				939DD1831D029CD700BB75B5 /* MessageStorage.swift in Sources */,
 				93C0E8EA1CFE62B80071CAA5 /* ChatManager.swift in Sources */,
+				93CE6F841D08B2410039F3D0 /* CustomFileTableViewCell.swift in Sources */,
 				93C0E8E41CFE2CCF0071CAA5 /* sContactView.swift in Sources */,
 				938DB9111D0328E0005DF1EC /* ContactArrayGETService.swift in Sources */,
+				93CE6F7E1D08A76E0039F3D0 /* File.swift in Sources */,
+				93CE6F821D08B0E40039F3D0 /* FileView.swift in Sources */,
 				933353B31D0343C700B43210 /* MessageArrayGETService.swift in Sources */,
+				93CE6F801D08AAA70039F3D0 /* FileManager.swift in Sources */,
 				93C0E8E81CFE61860071CAA5 /* ChatView.swift in Sources */,
 				7805B8A31CF8C177002A76F3 /* ViewController.swift in Sources */,
+				93AC1D071D08C83D00D1F988 /* FileGetService.swift in Sources */,
 				7805B8DD1CF90B09002A76F3 /* ContactManager.swift in Sources */,
 				938B92E01CFF952A000BC47B /* CustomMessageTableViewCell.swift in Sources */,
 				939DD1871D02C0FF00BB75B5 /* TabBarController1.swift in Sources */,
 				7805B8A11CF8C177002A76F3 /* AppDelegate.swift in Sources */,
 				939DD1891D02C77400BB75B5 /* ChatView2.swift in Sources */,
+				93CE6F7C1D08A7550039F3D0 /* SharedFilesArrayGetService.swift in Sources */,
 				933353B51D03443700B43210 /* MessagePOSTService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
