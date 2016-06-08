@@ -10,13 +10,13 @@ import UIKit
 
 class sContactViewController: UIViewController, UITableViewDataSource {
     
-    @IBOutlet weak var lblID: UILabel!
+    //@IBOutlet weak var lblID: UILabel!
     @IBOutlet var tableView: UITableView!
-    var idEntrar:Int = 0
+    var idEntrar:Int = 1
     var cManager = ContactManager ()
     var nombreUserDestino:Contact = Contact(id: 1,name: "a",userName: "b")
     var nombreUserRemitente:Contact = Contact(id: 1,name: "a",userName: "b")
-    var userRemitente : Int = 0
+    var userRemitente : Int = 1
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomTableViewCell = tableView.dequeueReusableCellWithIdentifier("Custom01") as! CustomTableViewCell
@@ -35,14 +35,13 @@ class sContactViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         cManager.getContacts(idEntrar)
-        print("--------")
-        let nameRemitente:String = "Puta MAdre Carlos"
-        let userNameRemitente:String = "Puta"
+        let nameRemitente:String = "Carlos"
+        let userNameRemitente:String = "Jaramillo"
         //cManager.getContactAt(idEntrar)?.userName
         nombreUserRemitente = Contact(id: idEntrar, name: nameRemitente, userName: userNameRemitente)
-        lblID.text? = "usuario: \(idEntrar)"
+        //lblID.text? = "usuario: \(idEntrar)"
         
-        let seconds = 0.5
+        let seconds = 1.0
         let delay = seconds*Double(NSEC_PER_SEC)
         let dispatchtime = dispatch_time(DISPATCH_TIME_NOW,Int64(delay))
         dispatch_after(dispatchtime, dispatch_get_main_queue(), {
@@ -52,22 +51,15 @@ class sContactViewController: UIViewController, UITableViewDataSource {
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "Tab1Conversar"){
+            let tabBarController = segue.destinationViewController as! TabBarController1;
+            let destinationViewController = tabBarController.viewControllers![0] as! ChatView2
             nombreUserDestino = cManager.getContactAt((tableView.indexPathForSelectedRow?.row)!)!
-            userRemitente = idEntrar//cManager.getContactAt(idEntrar)!
+            userRemitente = idEntrar
+            destinationViewController.userDestino = nombreUserDestino
+            destinationViewController.userRemitente = nombreUserRemitente.id
             print("Id from",nombreUserDestino.id,"Id to",nombreUserRemitente.id)
         }
-        (segue.destinationViewController as! TabBarController1).nombreUserDestino = nombreUserDestino
-        (segue.destinationViewController as! TabBarController1).userRemitente = userRemitente
     }
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "Conversar"){
-            nombreUserDestino = cManager.getContactAt((tableView.indexPathForSelectedRow?.row)!)!
-            nombreUserRemitente = cManager.getContactAt(idEntrar)!
-        }
-        (segue.destinationViewController as! ChatView).userDestino = nombreUserDestino
-        (segue.destinationViewController as! ChatView).userRemitente = nombreUserRemitente
-    }*/
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

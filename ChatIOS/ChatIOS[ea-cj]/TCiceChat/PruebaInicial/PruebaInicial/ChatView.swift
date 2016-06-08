@@ -29,7 +29,7 @@ class ChatView: UIViewController, UITableViewDataSource{
         //debugPrint("index path: ",cellcount+indexPath.row)
         //debugPrint("msgs: ",msgs)
         //cell.lblM1.text = msgs[indexPath.row].text
-        cell.lblM1.text = msg.text
+        //cell.lblM1.text = msg.text
         return cell
     }
     

@@ -21,7 +21,7 @@ class MessagePOSTService {
 
     func SendMessage(from: Int, to: Int, text: String) -> Void {
         let message = ["from":from, "to" : to, "text":text]
-        Alamofire.request(.POST, path, parameters: message as! [String : AnyObject], encoding: .JSON)
+        Alamofire.request(.POST, path, parameters: message as? [String : AnyObject], encoding: .JSON)
     }
 }
 

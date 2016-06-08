@@ -10,28 +10,38 @@ import UIKit
 class ChatView2: UIViewController {
 
     
-    @IBOutlet var titulo: UINavigationItem!
-    @IBOutlet var NavTitle: UINavigationItem!
+    @IBOutlet var TituloLbl: UILabel!
+    @IBOutlet var TituloItemBar: UINavigationItem!
+    //@IBOutlet var titulo: UINavigationItem!
+    //@IBOutlet var NavTitle: UINavigationItem!
     @IBOutlet var textoEntrante: UITextField!
     @IBOutlet var tableView: UITableView!
-    
     var userDestino:Contact = Contact(id: 1,name: "a",userName: "b")
     //var userRemitente: Contact = Contact(id: 1, name: "a", userName: "b")
     var userRemitente : Int = 0
     var msgs:[Message] = [Message]()
     
     var cManager : ChatManager = ChatManager()
-    var cTb: TabBarController1 = TabBarController1()
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let identifier:String = "Message1"
-        let cell:CustomMessageTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CustomMessageTableViewCell
-        let cellcount = cell.accessibilityElementCount()
-        let msg = cManager.getMsg(cellcount+indexPath.row)
-        cell.lblM3.text = msg.text
+        var identifier:String = "Message1"
+        var cell:CustomMessageTableViewCell
+        let valor = indexPath.row
+        let fromMsg = cManager.getFromMsg(valor)
+        if fromMsg == userRemitente {
+            identifier = "Message2"
+            cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CustomMessageTableViewCell
+            let msg = cManager.getMsg(valor)
+            cell.lblM4?.text = String(msg.text)
+        }else{
+            cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! CustomMessageTableViewCell
+            let msg = cManager.getMsg(valor)
+            cell.lblM3?.text = msg.text
+        }
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+
         return cell
     }
-    
     func tableView(tableView: UITableView,numberOfRowsInSection section: Int) -> Int{
         return cManager.count();
         
@@ -39,11 +49,16 @@ class ChatView2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userDestino = cTb.nombreUserDestino
-        userRemitente = cTb.userRemitente
-        textoEntrante.keyboardType = UIKeyboardType.Default
-        titulo.title = userDestino.name
-        cManager.start(userRemitente, to: userDestino.id)
+        self.textoEntrante.keyboardType = UIKeyboardType.Default
+        self.TituloLbl.text? = self.userDestino.name
+        self.cManager.start(self.userRemitente, to: self.userDestino.id)
+        let seconds = 0.5
+        let delay = seconds*Double(NSEC_PER_SEC)
+        let dispatchtime = dispatch_time(DISPATCH_TIME_NOW,Int64(delay))
+        dispatch_after(dispatchtime, dispatch_get_main_queue(), {
+            self.viewWillAppear(true)
+            
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,13 +76,18 @@ class ChatView2: UIViewController {
         postSer.SendMessage(userRemitente, to:userDestino.id,text:texto)
         textoEntrante.clearButtonMode = .WhileEditing
         textoEntrante.text = nil
-        viewWillAppear(true)
+        tableView.reloadData()
     }
     @IBAction func Refresh(sender: AnyObject) {
         //textoEntrante.text = nil
-        cManager.refreshMessages(userRemitente, to: userDestino.id)
-        viewWillAppear(true)
-    }
+        //cManager.refreshMessages(userRemitente, to: userDestino.id)
+        let seconds = 1.0
+        let delay = seconds*Double(NSEC_PER_SEC)
+        let dispatchtime = dispatch_time(DISPATCH_TIME_NOW,Int64(delay))
+        dispatch_after(dispatchtime, dispatch_get_main_queue(), {
+            self.viewWillAppear(true)
+            
+        })    }
     
     
     

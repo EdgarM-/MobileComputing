@@ -10,8 +10,6 @@ import UIKit
 
 class CustomMessageTableViewCell: UITableViewCell {
 
-    @IBOutlet var lblM2: UILabel!
-    @IBOutlet var lblM1: UILabel!
     @IBOutlet var lblM3: UILabel!
     @IBOutlet var lblM4: UILabel!
     override func awakeFromNib() {
